@@ -212,21 +212,80 @@ Eg:
    match_type = 0 (Exact match)
    match_type = 1 (<= Lookup value)
    match_type = -1 (>= Lookup value)
-
- |    | A        |    B  |
- |----|----------|-----|
- | 1   | Tools  | Price |
- | 2   | Hammer  | 10.99  |
- | 3   | Screw Driver  | 20.99  |
- | 4   | Pliers   | 40.99  |
- | 5   | Wrench    | 30.99  |
+   
+    |    | A        |    B  |
+    |----|----------|-----|
+    | 1   | Tools  | Price |
+    | 2   | Hammer  | 10.99  |
+    | 3   | Screw Driver  | 20.99  |
+    | 4   | Pliers   | 40.99  |
+    | 5   | Wrench    | 30.99  |
 
    MATCH(“Pliers”,$A$1:$A$5, 0) = 4
+
+   <img width="1027" height="222" alt="image" src="https://github.com/user-attachments/assets/9fd15e2c-6e51-48cf-84b3-617ec940346a" />
+
 
 8. INDEX and MATCH
 
 <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/65d9e176-38cb-43ea-945f-c561e9bab697" />
 
 9. XLOOKUP
+
+   XLOOKUP replaces older functions like VLOOKUP and HLOOKUP by being more flexible, allowing both vertical and horizontal lookups. can retrieve a dynamic array of results.
+   
+   =XLOOKUP("T-shirt", A2:A4, B2:B4, "Not Found")
+   
+      | A        |    B  |
+      |----------|-----|
+      | Product  | Price |
+      | T-shirt  | 10.99  |
+      | Sweater  | 20.99  |
+      | Shorts   | 40.99  |
+
+11. CHOOSE
     
-11. 
+      The CHOOSE function selects a value, cell reference, or function to perform from a list, based on a given index number
+
+    ``` =CHOOSE(3, "Apple", "Banana", "Cherry", "Date") ```
+    Returns Cherry
+    
+    ``` =CHOOSE(2, 100, 200, 300) ```
+    Return 200
+
+    Assuming the following values are in cells A1=10, A2=20, A3=30:
+    ``` =CHOOSE(1, A1, A2, A3) ```
+    Return 10
+    
+13. OFFSET
+    
+      return either the value of a cell within an array (like INDEX) or a specific range of cells
+
+      =OFFSET(reference, rows, columns, [height], [width])
+
+    Eg: ``` =OFFSET(A1, 3, 1) ```
+   
+    Eg 2:
+
+    ``` =OFFSET(A7, 0, 2, 5, 1) ```
+    <img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/67111e0e-8222-42cd-9eb4-1be57296dc51" />
+
+    <img width="119" height="88" alt="image" src="https://github.com/user-attachments/assets/7a3bd798-1753-4ff9-b079-02ca0cb4f880" />
+
+    Eg 3: 
+   
+   Assume E1 = 3
+  
+   ``` =SUM(OFFSET(B1, COUNT(B:B)-E1, 0, E1, 1)) ```
+   
+   Expl: SUM(OFFSET(B1, 3, 0, 3, 1)) = SUM(B4:B6) = 20 + 25 + 30 = 75
+         |  B |
+         |----|
+         | 5  |
+         | 10 |
+         | 15 |
+         | 20 |
+         | 25 |
+         | 30 |
+         
+   

@@ -87,4 +87,7 @@ Blu Ray Player	2744	3%	82.32
   <img width="341" height="169" alt="image" src="https://github.com/user-attachments/assets/bb1f515b-8fa1-4511-a5b6-aaf57434062b" />
 
     SUM(INDIRECT(D2)) = 16
-    
+
+### 11. HYPERLINK  
+
+    =HYPERLINK(”http://www.example.com”, “Click Here”)

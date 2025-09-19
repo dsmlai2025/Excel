@@ -148,7 +148,9 @@ Eg:
     
    ``` AVERAGEIFS(D2:D13, A2:A13,“Jan”,C2:C13,“MSN”) = 263 ```
 
- Lookup & Reference Functions
+### Lookup & Reference Functions
+
+1. VLOOKUP
 
 | A |    B    | C   | D    |    E |
 |---|---------|-----|-------|-------|
@@ -158,8 +160,73 @@ Eg:
 | G        |    H  |
 |----------|-----|
 | Product  | Price |
-| T-shirt  | 10  |
-| Sweater  | 20  |
-| Shorts   | 40  |
-| Socks    | 30  |
-| Spandex  | 50  |
+| T-shirt  | 10.99  |
+| Sweater  | 20.99  |
+| Shorts   | 40.99  |
+| Socks    | 30.99  |
+| Spandex  | 50.99  |
+
+2. HLOOKUP
+
+| A |    B    | C   | D    |    E |
+|---|---------|-----|-------|-------|
+| 1 | Product | Qty | PID   | Price |
+| 2 | T-shirt | 25  | 93764 | =HLOOKUP(A2, $G$1:$J$2,2,0) |
+
+| G        |    H  |  I    |   J   |
+|----------|-------|-------|-------|
+| Product  |  T-shirt | Sweater  | Shorts |
+| Price    | 10.99  |   20.99    | 40.99  |
+
+3. ROW vs ROWS
+   
+   ROW function returns the row number of a given reference
+   ``` Eg: ROW(C10) = 10    ```
+
+   ROWS function returns the number of rows in a given arrayor
+
+   ``` ROWS(A10:D15) = 6 ```
+
+   ``` ROWS({1,2,3;4,5,6}) = 2    ```
+   Returns number of rows of an array
+   
+5. COLUMN vs COLUMNS
+
+  ``` COLUMN(C10) = 3   ```
+  
+  ``` COLUMNS(A10:D15) = 4   ```
+  
+  ``` COLUMNS({1,2,3;4,5,6}) = 3   ```
+
+6. INDEX
+
+  Eg: Returns the value R5, C3
+   
+  ``` INDEX($A$1:$C$5, 5, 3) = 234 ```
+
+7. MATCH
+
+   The MATCH function returns the position of a specific value within a column or row  
+   Eg: MATCH(lookup_value, lookup_array, [match_type])
+
+   match_type = 0 (Exact match)
+   match_type = 1 (<= Lookup value)
+   match_type = -1 (>= Lookup value)
+
+ |    | A        |    B  |
+ |----|----------|-----|
+ | 1   | Tools  | Price |
+ | 2   | Hammer  | 10.99  |
+ | 3   | Screw Driver  | 20.99  |
+ | 4   | Pliers   | 40.99  |
+ | 5   | Wrench    | 30.99  |
+
+   MATCH(“Pliers”,$A$1:$A$5, 0) = 4
+
+8. INDEX and MATCH
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/65d9e176-38cb-43ea-945f-c561e9bab697" />
+
+9. XLOOKUP
+    
+11. 

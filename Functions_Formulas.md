@@ -147,3 +147,19 @@ Eg:
    ``` SUMIFS(D2:D13, A2:A13,“Feb”,B2:B13,“Display”) = 734 ```
     
    ``` AVERAGEIFS(D2:D13, A2:A13,“Jan”,C2:C13,“MSN”) = 263 ```
+
+ Lookup & Reference Functions
+
+| A |    B    | C   | D    |    E |
+|---|---------|-----|-------|-------|
+| 1 | Product | Qty | PID   | Price |
+| 2 | T-shirt | 25  | 93764 | =VLOOKUP(A2, $G$1:$H$6,2,0) |
+
+| G        |    H  |
+|----------|-----|
+| Product  | Price |
+| T-shirt  | 10  |
+| Sweater  | 20  |
+| Shorts   | 40  |
+| Socks    | 30  |
+| Spandex  | 50  |
